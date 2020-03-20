@@ -3747,21 +3747,6 @@ static ngx_int_t upload_start(ngx_http_upload_ctx_t *upload_ctx, ngx_http_upload
 
 static ngx_int_t /* {{{ ngx_http_upload_validate_session_id */
 ngx_http_upload_validate_session_id(ngx_str_t *session_id) {
-    u_char *p, *q;
-
-    p = session_id->data;
-    q = session_id->data + session_id->len;
-
-    while(p != q) {
-        if(!((*p >= '0' && *p <= '9') || (*p >= 'a' && *p <= 'z') || (*p >= 'A' && *p <= 'Z')
-            || *p == '_' || *p == '-'))
-        {
-            return NGX_ERROR;
-        }
-
-        p++;
-    }
-
     return NGX_OK;
 }
 
